@@ -1,0 +1,57 @@
+<h1 mat-dialog-title>Users List:</h1>
+<div mat-dialog-content>
+    Please select a user
+
+    <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <!-- ID Column -->
+        <ng-container matColumnDef="Project_ID">
+            <th mat-header-cell *matHeaderCellDef> No. </th>
+            <td mat-cell *matCellDef="let element" (click)="onSave(element)">
+                <a href="javascript:void(0)">{{element.Project_ID}}</a>
+            </td>
+        </ng-container>
+
+        <!-- First Name Column -->
+        <ng-container matColumnDef="Project" style="width: 15%">
+            <th mat-header-cell *matHeaderCellDef style="width: 15%"> Project </th>
+            <td mat-cell *matCellDef="let element" style="width: 15%" (click)="onSave(element)">
+                <a href="javascript:void(0)"> {{element.Project}} </a>
+            </td>
+        </ng-container>
+
+        <!-- Last_Name Column -->
+        <ng-container matColumnDef="Start_Date">
+            <th mat-header-cell *matHeaderCellDef> Start Date </th>
+            <td mat-cell *matCellDef="let element" (click)="onSave(element)">
+                <a href="javascript:void(0)"> {{element.Start_Date | date}} </a>
+            </td>
+        </ng-container>
+
+        <!-- Employee_ID Column -->
+        <ng-container matColumnDef="End_Time">
+            <th mat-header-cell *matHeaderCellDef> End Date </th>
+            <td mat-cell *matCellDef="let element" (click)="onSave(element)">
+                <a href="javascript:void(0)">{{element.End_Time | date}} </a>
+            </td>
+        </ng-container>
+
+        <!-- Employee_ID Column -->
+        <ng-container matColumnDef="Priority">
+            <th mat-header-cell *matHeaderCellDef> Priority </th>
+            <td mat-cell *matCellDef="let element" (click)="onSave(element)">
+                <a href="javascript:void(0)">{{element.Priority}} </a>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+
+
+</div>

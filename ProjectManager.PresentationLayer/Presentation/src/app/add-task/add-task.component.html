@@ -1,0 +1,68 @@
+<div class="container">
+  <form #addTaskForm="ngForm">
+
+    <div class="form_group">
+      <b style="display: inline-block;width: 10%" for="projectName">Project :</b>
+      <input name="projectName" style="display: inline-block;width:50%" class="form-control" type="text" [(ngModel)]="addTaskModel.Project_ID"
+        disabled="true" required #projectName="ngModel">
+      <button class="form-control" (click)="openDialog()" style="display: inline-block;margin-left: 2%; width: 10%">Search</button>
+      <div [hidden]="projectName.valid || projectName.pristine" class="alert alert-danger">
+        Project Name is required
+      </div>
+    </div>
+    <br/>
+    <div class="form_group">
+      <b style="display: inline-block;width: 10%">Task:</b>
+      <input name="task" class="form-control" style="display: inline-block;width: 50%" [(ngModel)]="addTaskModel.Task" required #task="ngModel">
+      <div [hidden]="task.valid || task.pristine" class="alert alert-danger">
+        Task is required
+      </div>
+    </div>
+    <br/>
+    <div class="form_group">
+      <mat-checkbox color="primary" [(ngModel)]="addTaskModel.isParentTask" (change)="toggleTask()" name="setDate" style="width: 5%; height: 20px;margin-left: 10%;">Parent Task</mat-checkbox>
+      <br/>
+      <b [hidden]="!addTaskModel.isParentTask" style="display:inline-block;width: 10%">Parent Task Title :</b>
+      <input name="parentTitle" style="display:inline-block;width: 50%" class="form-control" [hidden]="!addTaskModel.isParentTask" [(ngModel)]="addTaskModel.ParentTaskTitle">
+    </div>
+    <br/>
+    <div class="form_group">
+      <b style="display: inline-block;width: 10%">Priority :</b>
+      <mat-slider style="width:51%" class="excludeErrorStyle" name="priority" color="primary" thumbLabel [displayWith]="formatLabel"
+        tickInterval="1000" min="0" max="30" [disabled]="addTaskModel.isParentTask" [(ngModel)]="addTaskModel.Priority" required #priority="ngModel"></mat-slider>
+    </div>
+    <br>
+    <div class="form_group">
+      <b style="display: inline-block;width: 15%">Parent Task :</b>
+      <input name="parentTask" class="form-control" [(ngModel)]="addTaskModel.Parent_ID" style="display: inline-block;width: 50%;margin-left: -5%;" disabled>
+      <button class="form-control" (click)="openParentTaskDialog()" [disabled]="addTaskModel.isParentTask" style="display: inline-block; margin-left: 2%;width: 10%">Search</button>
+    </div>
+<div style="margin-top: 2%;">
+  <b style="display: inline-block;width: 10%">Start Date:</b>
+  <mat-form-field style="margin-left: 2%">
+      <input matInput [matDatepicker]="picker" [max]="addTaskModel.End_Date" name="startDate" placeholder="Choose date"
+        [(ngModel)]="addTaskModel.Start_Date" [disabled]="addTaskModel.isParentTask" required #startDate="ngModel">
+      <mat-datepicker-toggle matSuffix [disabled]="addTaskModel.isParentTask" [for]="picker" ></mat-datepicker-toggle>
+      <mat-datepicker (selectedChanged)="validateDate($event)" [disabled]="addTaskModel.isParentTask" #picker ></mat-datepicker>
+    </mat-form-field>
+    <b style="display: inline-block;width: 10%">End Date:</b>
+    <mat-form-field style="margin-left: 2%">
+        <input matInput [matDatepicker]="picker2" [min]="addTaskModel.Start_Date" name="endDate" placeholder="Choose Date" [disabled]="addTaskModel.isParentTask" [(ngModel)]="addTaskModel.End_Date"
+          required #endDate="ngModel">
+        <mat-datepicker-toggle matSuffix [for]="picker2" [disabled]="addTaskModel.isParentTask"></mat-datepicker-toggle>
+        <mat-datepicker #picker2 (selectedChanged)="validateDate($event)" [disabled]="addTaskModel.isParentTask"></mat-datepicker>
+      </mat-form-field>
+</div>
+
+<div>
+  <b style="display: inline-block;width: 5%;margin-right: 5%;">User:</b>
+  <input name="user" class="form-control" style="display: inline-block;width: 50%" [(ngModel)]="addTaskModel.User_ID" disabled required #user="ngModel">
+  <button class="form-control" (click)="openUsersDialog()" style="display: inline-block; margin-left: 2%;width: 10%">Search</button>
+</div>
+  <div style="margin-top: 3%; margin-left: 22%;">
+    <button style="width: 10%;" type="submit" (click)="onSubmit();addTaskForm.reset();" [disabled]="!addTaskModel.Project_ID || !addTaskModel.User_ID || !addTaskModel.Task || (!addTaskModel.isParentTask && (!endDate.valid || !startDate.valid))"
+      class="btn btn-success" >{{!isUpdate ?'Add':'Update'}}</button>
+    <button  style="width: 10%;margin-left: 2%" (click)="addTaskForm.reset();isUpdate=false;"  class="btn btn-primary">Reset</button>
+  </div>
+  </form>
+</div>

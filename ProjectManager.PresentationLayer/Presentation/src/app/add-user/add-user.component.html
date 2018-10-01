@@ -1,0 +1,66 @@
+<div class="container">
+  <form #addUserForm="ngForm">
+      <!-- <form #addUserForm="ngForm" (ngSubmit)="onSubmit()"> -->
+    <!-- {{diagnostic}} -->
+    <div class="form_group">
+  <label for="firstName">First Name:</label>
+  <input name="firstName" class="form-control" type="text" [(ngModel)]="addUserModel.First_Name" required #firstName="ngModel">
+  <div [hidden]="firstName.valid || firstName.pristine"
+     class="alert alert-danger">
+     First Name is required
+</div>
+</div>
+  <br/>
+  <div class="form_group">
+  <label for="lastName">Last Name:</label>
+  <input name="lastName" class="form-control" type="text" [(ngModel)]="addUserModel.Last_Name" required #lastName="ngModel">
+  <div [hidden]="lastName.valid || lastName.pristine"
+     class="alert alert-danger">
+     Last Name is required
+</div>
+</div>
+  <br/>
+  <div class="form_group">
+  <label for="employeeID">Employee ID:</label>
+  <input name="employeeID" class="form-control" type="text" [(ngModel)]="addUserModel.Employee_ID" required #employeeID="ngModel">
+  <div [hidden]="employeeID.valid || employeeID.pristine"
+     class="alert alert-danger">
+     Employee ID is required
+</div>
+</div>
+<br/>
+<button type="submit" (click)="onSubmit();addUserForm.reset();" [disabled]="!firstName.valid || !lastName.valid || !employeeID.valid" class="btn btn-success" [value]="addUserModel.User_ID == ''?'Add':'Update'">{{!isUpdate ?'Add':'Update'}}</button>
+<button (click)="addUserForm.reset();isUpdate=false;" style="margin-left: 2%" class="btn btn-primary">Reset</button>
+
+</form>
+<hr style="border-top: 1px solid #333;"/>
+
+<div>
+<input type="text" class="form-control" [(ngModel)]="searchText" style="display: inline; width: 40%" placeholder="Search...">
+<b style="display: inline; margin-left: 2%; width: 10%">Sort:</b>
+<button class="form-control overFlow" (click)="getUsers('fName')" style="display: inline;margin-left: 2%; width: 15%">First Name</button>
+<button class="form-control overFlow" (click)="getUsers('lName')"style="display: inline;margin-left: 2%; width: 15%">Last Name</button>
+<button class="form-control overFlow" (click)="getUsers('Id')"style="display: inline;margin-left: 2%; width: 15%">Id</button>
+</div>
+
+<div *ngFor ="let user of UserModel | filter : searchText">
+
+<hr style="border-top: dotted 1px;" />
+<div class="row">
+<label class="form-control col-md-8"  style="margin-left: 2%;">{{user.First_Name}}</label>
+<button class="form-control col-md-3" (click)="editUser(user)" style="margin-left: 2%; ">Edit</button>
+</div>
+<div class="row">
+<label class="form-control col-md-8" style="margin-left: 2%; display: inline;">{{user.Last_Name}}</label>
+<button class="form-control col-md-3" (click)="deleteUser(user)" style="display: inline;margin-left: 2%;  width: 20%">Delete</button>
+</div>
+<div class="row">
+<label class="form-control col-md-8" style="margin-left: 2%; display: inline; width: 20%">{{user.Employee_ID}}</label>
+</div>
+</div>
+
+<div *ngIf="usersListCount==0">
+  <label>There are no users</label>
+</div>
+
+</div>

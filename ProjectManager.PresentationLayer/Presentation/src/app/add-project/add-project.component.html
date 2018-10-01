@@ -1,0 +1,117 @@
+<div class="container">
+  <form #addProjectForm="ngForm">
+    <!-- <form #addUserForm="ngForm" (ngSubmit)="onSubmit()"> -->
+    <!-- {{diagnostic}} -->
+    <div class="form_group">
+      <label for="projectName">Project :</label>
+      <input name="projectName" class="form-control" type="text" [(ngModel)]="addProjectModel.Project" required #projectName="ngModel">
+      <div [hidden]="projectName.valid || projectName.pristine" class="alert alert-danger">
+        Project Name is required
+      </div>
+    </div>
+    <br/>
+    <div class="form_group">
+      <!-- <input type="checkbox" (click)="toggleSetDate()" name="setDate" style="width: 5%; height: 20px;" [(ngModel)]="isSetDateEnabled"> -->
+      <!-- <label for="setDate">Set Start and End Date</label> -->
+      <mat-checkbox color="primary" [(ngModel)]="isSetDateEnabled" (change)="toggleSetDate()" name="setDate" style="width: 5%; height: 20px;">Set Start and End Date</mat-checkbox>
+
+      <mat-form-field style="margin-left: 2%">
+        <input matInput [matDatepicker]="picker" [max]="addProjectModel.End_Time" name="startDate" placeholder="Start Date" [disabled]="!isSetDateEnabled"
+          [(ngModel)]="addProjectModel.Start_Date" required #startDate="ngModel">
+        <mat-datepicker-toggle matSuffix [for]="picker" [disabled]="!isSetDateEnabled"></mat-datepicker-toggle>
+        <mat-datepicker (selectedChanged)="validateDate($event)" #picker [disabled]="!isSetDateEnabled"></mat-datepicker>
+      </mat-form-field>
+      <!-- <div [hidden]="startDate.valid || startDate.pristine || !isSetDateEnabled" class="alert alert-danger">
+        Start Date is required
+      </div> -->
+      <mat-form-field style="margin-left: 2%">
+        <input matInput [matDatepicker]="picker2" name="endDate" placeholder="End Date" [disabled]="!isSetDateEnabled" [(ngModel)]="addProjectModel.End_Time"
+          required #endDate="ngModel">
+        <mat-datepicker-toggle matSuffix [for]="picker2" [disabled]="!isSetDateEnabled"></mat-datepicker-toggle>
+        <mat-datepicker #picker2 (selectedChanged)="validateDate($event)" [disabled]="!isSetDateEnabled"></mat-datepicker>
+      </mat-form-field>
+
+
+      <!-- <input type="date" class="form-control" name="startDate" style="display: inline; width: 30%;margin-left: 5px" [disabled]="!isSetDateEnabled" [(ngModel)]="addProjectModel.Start_Date"
+        #startDate="ngModel"> -->
+      <!-- <input type="date" class="form-control" name="endDate" style="display: inline; width: 30%;margin-left: 5px" [disabled]="!isSetDateEnabled" [(ngModel)]="addProjectModel.End_Time"
+        #endDate="ngModel"> -->
+      <!-- <div [hidden]="startDate.valid || startDate.pristine || !isSetDateEnabled" class="alert alert-danger">
+        Start Date is required
+      </div> -->
+      <!-- <div [hidden]="endDate.valid || endDate.pristine || !isSetDateEnabled" class="alert alert-danger">
+        End Date is required
+      </div> -->
+    </div>
+    <br/>
+    <div class="form_group">
+      <label for="priority">Priority:</label>
+      <!-- <input name="priority" type="range" class="form-control" min="0" max="30" [(ngModel)]="addProjectModel.Priority" required
+        #priority="ngModel">
+      <p>Value:
+        <span>{{addProjectModel.Priority}}</span>
+      </p> -->
+      <mat-slider style="margin-left: 2%;width:30%" class="excludeErrorStyle" name="priority" color="primary" thumbLabel [displayWith]="formatLabel"
+        tickInterval="1000" min="0" max="30" [(ngModel)]="addProjectModel.Priority" required #priority="ngModel"></mat-slider>
+    </div>
+    <br/>
+
+    <div class="form_group">
+      <label for="manager" style="display: inline;width: 10%">Manager:</label>
+      <input name="manager" style="display: inline; margin-left: 2%; width: 40%" class="form-control" type="text" [(ngModel)]="addProjectModel.User_ID"
+        disabled=true required #manager="ngModel">
+      <button class="form-control" (click)="openDialog()" style="display: inline; margin-left: 2%; width: 10%">Search</button>
+      <div [hidden]="manager.valid || manager.pristine" class="alert alert-danger">
+        Manager is required
+      </div>
+
+    </div>
+    <br>
+    <button type="submit" (click)="onSubmit();addProjectForm.reset();" [disabled]="!projectName.valid || (isSetDateEnabled && (!endDate.valid || !startDate.valid)) || !addProjectModel.User_ID"
+      class="btn btn-success" [value]="addProjectModel.Project_ID == ''?'Add':'Update'">{{!isUpdate ?'Add':'Update'}}</button>
+    <button (click)="addProjectForm.reset();isUpdate=false;" style="margin-left: 2%" class="btn btn-primary">Reset</button>
+
+  </form>
+  <hr style="border-top: 1px solid #333;" />
+
+  <div>
+    <input type="text" class="form-control" [(ngModel)]="searchText" placeholder="Search...">
+    <br/>
+    <b style="display: inline; margin-left: 2%; width: 10%">Sort:</b>
+    <button class="form-control overFlow" style="display: inline;margin-left: 2%; width: 15%">Start Date</button>
+    <button class="form-control overFlow" style="display: inline;margin-left: 2%; width: 15%">End Date</button>
+    <button class="form-control overFlow" style="display: inline;margin-left: 2%; width: 15%">Priority</button>
+    <button class="form-control overFlow" style="display: inline;margin-left: 2%; width: 15%">Completed</button>
+    <div *ngFor="let project of ProjectModel">
+      <div style="background: #D3D3D3;margin-top: 20px;width:50%;display: inline-block">
+        <b>Project:</b>
+        <br/>
+        <b>No. of Tasks:</b>
+        <span style="margin-left: 10px">2</span>
+        <b style="margin-left: 10px">Completed:</b>
+        <span style="margin-left: 10px">2</span>
+        <br/>
+        <b>Start Date</b>
+        <span style="margin-left: 10px">{{project.Start_Date | date}}</span>
+        <b style="margin-left: 10px">End Date</b>
+        <span style="margin-left: 10px">{{project.End_Time | date}}</span>
+      </div>
+
+      <div style="background: #D3D3D3;margin-left: 10px; margin-top: 20px;width:10%;display: inline-block">
+        <b>Priority:</b>
+        <br/>
+        <br/>
+        <span>{{project.Priority}}</span>
+      </div>
+      <div style="margin-left: 10px; display: inline-block">
+        <button class="form-control" (click)="editProject(project)">Update</button>
+        <button class="form-control" (click)="deleteProject(project)" style="margin-top: 10px">Suspend</button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="ProjectListCount==0">
+    <label>There are no projects</label>
+  </div>
+
+</div>

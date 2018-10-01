@@ -1,0 +1,6 @@
+C:\FSDFinalAssessment\CommonEntities\bin\Debug\CommonEntities.dll
+C:\FSDFinalAssessment\CommonEntities\bin\Debug\CommonEntities.pdb
+C:\FSDFinalAssessment\CommonEntities\bin\Debug\Newtonsoft.Json.dll
+C:\FSDFinalAssessment\CommonEntities\bin\Debug\Newtonsoft.Json.xml
+C:\FSDFinalAssessment\CommonEntities\obj\Debug\CommonEntities.dll
+C:\FSDFinalAssessment\CommonEntities\obj\Debug\CommonEntities.pdb
