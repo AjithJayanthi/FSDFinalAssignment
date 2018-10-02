@@ -1,13 +1,7 @@
-C:\FSDFinalAssessment\CommonEntities\bin\Debug\CommonEntities.dll
-C:\FSDFinalAssessment\CommonEntities\bin\Debug\CommonEntities.pdb
-C:\FSDFinalAssessment\CommonEntities\bin\Debug\Newtonsoft.Json.dll
-C:\FSDFinalAssessment\CommonEntities\bin\Debug\Newtonsoft.Json.xml
-C:\FSDFinalAssessment\CommonEntities\obj\Debug\CommonEntities.dll
-C:\FSDFinalAssessment\CommonEntities\obj\Debug\CommonEntities.pdb
 C:\Ajith\CommonEntities\bin\Debug\CommonEntities.dll
 C:\Ajith\CommonEntities\bin\Debug\CommonEntities.pdb
 C:\Ajith\CommonEntities\bin\Debug\Newtonsoft.Json.dll
 C:\Ajith\CommonEntities\bin\Debug\Newtonsoft.Json.xml
+C:\Ajith\CommonEntities\obj\Debug\CommonEntities.csprojResolveAssemblyReference.cache
 C:\Ajith\CommonEntities\obj\Debug\CommonEntities.dll
 C:\Ajith\CommonEntities\obj\Debug\CommonEntities.pdb
-C:\Ajith\CommonEntities\obj\Debug\CommonEntities.csprojResolveAssemblyReference.cache

@@ -1,12 +1,3 @@
-C:\FSDFinalAssessment\ProjectManager.DataAccessLayer\bin\Debug\ProjectManager.DataAccessLayer.dll.config
-C:\FSDFinalAssessment\ProjectManager.DataAccessLayer\bin\Debug\ProjectManager.DataAccessLayer.dll
-C:\FSDFinalAssessment\ProjectManager.DataAccessLayer\bin\Debug\ProjectManager.DataAccessLayer.pdb
-C:\FSDFinalAssessment\ProjectManager.DataAccessLayer\bin\Debug\EntityFramework.dll
-C:\FSDFinalAssessment\ProjectManager.DataAccessLayer\bin\Debug\EntityFramework.SqlServer.dll
-C:\FSDFinalAssessment\ProjectManager.DataAccessLayer\bin\Debug\EntityFramework.xml
-C:\FSDFinalAssessment\ProjectManager.DataAccessLayer\bin\Debug\EntityFramework.SqlServer.xml
-C:\FSDFinalAssessment\ProjectManager.DataAccessLayer\obj\Debug\ProjectManager.DataAccessLayer.dll
-C:\FSDFinalAssessment\ProjectManager.DataAccessLayer\obj\Debug\ProjectManager.DataAccessLayer.pdb
 C:\Ajith\ProjectManager.DataAccessLayer\bin\Debug\ProjectManager.DataAccessLayer.dll.config
 C:\Ajith\ProjectManager.DataAccessLayer\bin\Debug\ProjectManager.DataAccessLayer.dll
 C:\Ajith\ProjectManager.DataAccessLayer\bin\Debug\ProjectManager.DataAccessLayer.pdb
@@ -14,6 +5,6 @@ C:\Ajith\ProjectManager.DataAccessLayer\bin\Debug\EntityFramework.dll
 C:\Ajith\ProjectManager.DataAccessLayer\bin\Debug\EntityFramework.SqlServer.dll
 C:\Ajith\ProjectManager.DataAccessLayer\bin\Debug\EntityFramework.xml
 C:\Ajith\ProjectManager.DataAccessLayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Ajith\ProjectManager.DataAccessLayer\obj\Debug\ProjectManager.DataAccessLayer.csprojResolveAssemblyReference.cache
 C:\Ajith\ProjectManager.DataAccessLayer\obj\Debug\ProjectManager.DataAccessLayer.dll
 C:\Ajith\ProjectManager.DataAccessLayer\obj\Debug\ProjectManager.DataAccessLayer.pdb
-C:\Ajith\ProjectManager.DataAccessLayer\obj\Debug\ProjectManager.DataAccessLayer.csprojResolveAssemblyReference.cache

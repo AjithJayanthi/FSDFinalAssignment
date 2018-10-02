@@ -1,4 +1,5 @@
 ﻿using CommonEntities;
+using CommonEntities.Interfaces;
 using ProjectManager.DataAccessLayer;
 using System;
 using System.Collections.Generic;
@@ -9,17 +10,22 @@ using System.Threading.Tasks;
 
 namespace ProjectManager.BusinessLayer
 {
-    public class Project
+    public class Project: IProjectBusiness
     {
+        private readonly ProjectManagerEntities dbContext = null;
         public Project()
         {
-
+            dbContext = new ProjectManagerEntities();
+        }
+        public Project(ProjectManagerEntities dbContextdata)
+        {
+            dbContext = dbContextdata;
         }
 
         public bool AddProject(ProjectModel project)
         {
-            using (ProjectManagerEntities dbContext = new ProjectManagerEntities())
-            {
+            //using (ProjectManagerEntities dbContext = new ProjectManagerEntities())
+            //{
                 try
                 {
                     if (project.Project_ID == 0)
@@ -67,14 +73,14 @@ namespace ProjectManager.BusinessLayer
                     return false;
                 }
                 return true;
-            }
+            //}
 
         }
 
         public List<ProjectModel> GetProject()
         {
-            using (ProjectManagerEntities dbContext = new ProjectManagerEntities())
-            {
+            //using (ProjectManagerEntities dbContext = new ProjectManagerEntities())
+            //{
                 List<ProjectModel> projects;
                 try
                 {
@@ -86,14 +92,14 @@ namespace ProjectManager.BusinessLayer
                     return new List<ProjectModel>();
                 }
                 return projects;
-            }
+            //}
 
         }
 
         public bool DeleteProject(ProjectModel project)
         {
-            using (ProjectManagerEntities dbContext = new ProjectManagerEntities())
-            {
+            //using (ProjectManagerEntities dbContext = new ProjectManagerEntities())
+            //{
                 try
                 {
                     var userData = dbContext.Users_Table.Where(c => c.User_ID == project.User_ID).First();
@@ -108,7 +114,7 @@ namespace ProjectManager.BusinessLayer
                     return false;
                 }
                 return true;
-            }
+            //}
 
         }
     }

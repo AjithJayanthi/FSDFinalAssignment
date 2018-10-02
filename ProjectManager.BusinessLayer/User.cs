@@ -1,4 +1,5 @@
 ﻿using CommonEntities;
+using CommonEntities.Interfaces;
 using ProjectManager.DataAccessLayer;
 using System;
 using System.Collections.Generic;
@@ -9,17 +10,23 @@ using System.Threading.Tasks;
 
 namespace ProjectManager.BusinessLayer
 {
-    public class User
+    public class User: IUserBusiness
     {
+        private readonly ProjectManagerEntities dbContext = null;
         public User()
         {
+            dbContext = new ProjectManagerEntities();
+        }
 
+        public User(ProjectManagerEntities dbContextData)
+        {
+            dbContext = dbContextData;
         }
 
         public bool AddUser(UsersModel user)
         {
-            using (ProjectManagerEntities dbContext = new ProjectManagerEntities())
-            {
+            //using (ProjectManagerEntities dbContext = new ProjectManagerEntities())
+            //{
                 try
                 {
                     if (user.User_ID == 0)
@@ -51,29 +58,29 @@ namespace ProjectManager.BusinessLayer
                     return false;
                 }
                 return true;
-            }
+           // }
 
         }
 
         public List<UsersModel> GetUsers(string soringParameter)
         {
-            using (ProjectManagerEntities dbContext = new ProjectManagerEntities())
-            {
+          
                 List<UsersModel> users;
                 var result = new List<UsersModel>();
                 try
                 {
                     users = dbContext.Users_Table.Select(c => new UsersModel { User_ID = c.User_ID, First_Name = c.First_Name, Last_Name = c.Last_Name, Employee_ID = c.Employee_ID }).ToList();
-                    
-                    if(String.IsNullOrEmpty(soringParameter) || soringParameter=="Id")
+
+                    if (String.IsNullOrEmpty(soringParameter) || soringParameter == "Id")
                     {
-                        result=users.OrderBy(u=>u.Employee_ID).ToList();
+                        result = users.OrderBy(u => u.Employee_ID).ToList();
                     }
                     else if (soringParameter == "fName")
                     {
                         result = users.OrderBy(u => u.First_Name).ToList();
                     }
-                    else if(soringParameter == "lName"){
+                    else if (soringParameter == "lName")
+                    {
                         result = users.OrderBy(u => u.Last_Name).ToList();
                     }
                 }
@@ -82,14 +89,13 @@ namespace ProjectManager.BusinessLayer
                     return new List<UsersModel>();
                 }
                 return result;
-            }
 
         }
 
         public bool DeleteUser(UsersModel user)
         {
-            using (ProjectManagerEntities dbContext = new ProjectManagerEntities())
-            {
+            //using (ProjectManagerEntities dbContext = new ProjectManagerEntities())
+            //{
                 try
                 {
                     var userData = new Users_Table { User_ID = user.User_ID };
@@ -103,6 +109,6 @@ namespace ProjectManager.BusinessLayer
                 return true;
             }
             
-        }
+        //}
     }
 }

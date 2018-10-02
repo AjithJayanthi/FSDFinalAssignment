@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<test-run id="2" testcasecount="12" result="Failed" total="12" passed="10" failed="2" inconclusive="0" skipped="0" asserts="16" engine-version="3.9.0.0" clr-version="4.0.30319.42000" start-time="2018-10-02 16:17:11Z" end-time="2018-10-02 16:17:26Z" duration="15.691761">
+  <command-line><![CDATA[..\..\..\packages\NUnit.ConsoleRunner.3.9.0\tools\nunit3-console.exe  ProjectManager.Test.dll]]></command-line>
+  <test-suite type="Assembly" id="0-1016" name="ProjectManager.Test.dll" fullname="C:\Ajith\ProjectManager.Test\bin\Debug\ProjectManager.Test.dll" runstate="Runnable" testcasecount="12" result="Failed" site="Child" start-time="2018-10-02 16:17:18Z" end-time="2018-10-02 16:17:26Z" duration="8.235677" total="12" passed="10" failed="2" warnings="0" inconclusive="0" skipped="0" asserts="16">
+    <environment framework-version="3.10.1.0" clr-version="4.0.30319.42000" os-version="Microsoft Windows NT 10.0.17134.0" platform="Win32NT" cwd="C:\Ajith\ProjectManager.Test\bin\Debug" machine-name="DOTNET" user="Admin" user-domain="DOTNET" culture="en-IN" uiculture="en-US" os-architecture="x64" />
+    <settings>
+      <setting name="DisposeRunners" value="True" />
+      <setting name="WorkDirectory" value="C:\Ajith\ProjectManager.Test\bin\Debug" />
+      <setting name="ImageRuntimeVersion" value="4.0.30319" />
+      <setting name="ImageTargetFrameworkName" value=".NETFramework,Version=v4.5.2" />
+      <setting name="ImageRequiresX86" value="False" />
+      <setting name="ImageRequiresDefaultAppDomainAssemblyResolver" value="False" />
+      <setting name="NumberOfTestWorkers" value="3" />
+    </settings>
+    <properties>
+      <property name="_PID" value="15912" />
+      <property name="_APPDOMAIN" value="domain-" />
+    </properties>
+    <failure>
+      <message><![CDATA[One or more child tests had errors]]></message>
+    </failure>
+    <test-suite type="TestSuite" id="0-1017" name="ProjectManager" fullname="ProjectManager" runstate="Runnable" testcasecount="12" result="Failed" site="Child" start-time="2018-10-02 16:17:18Z" end-time="2018-10-02 16:17:26Z" duration="8.180833" total="12" passed="10" failed="2" warnings="0" inconclusive="0" skipped="0" asserts="16">
+      <failure>
+        <message><![CDATA[One or more child tests had errors]]></message>
+      </failure>
+      <test-suite type="TestSuite" id="0-1018" name="Test" fullname="ProjectManager.Test" runstate="Runnable" testcasecount="12" result="Failed" site="Child" start-time="2018-10-02 16:17:18Z" end-time="2018-10-02 16:17:26Z" duration="8.178829" total="12" passed="10" failed="2" warnings="0" inconclusive="0" skipped="0" asserts="16">
+        <failure>
+          <message><![CDATA[One or more child tests had errors]]></message>
+        </failure>
+        <test-suite type="TestFixture" id="0-1000" name="ProjectServiceControllerTest" fullname="ProjectManager.Test.ProjectServiceControllerTest" classname="ProjectManager.Test.ProjectServiceControllerTest" runstate="Runnable" testcasecount="3" result="Passed" start-time="2018-10-02 16:17:18Z" end-time="2018-10-02 16:17:18Z" duration="0.168292" total="3" passed="3" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="4">
+          <test-case id="0-1002" name="addUsersTest" fullname="ProjectManager.Test.ProjectServiceControllerTest.addUsersTest" methodname="addUsersTest" classname="ProjectManager.Test.ProjectServiceControllerTest" runstate="Runnable" seed="1672201800" result="Passed" start-time="2018-10-02 16:17:18Z" end-time="2018-10-02 16:17:18Z" duration="0.081577" asserts="1" />
+          <test-case id="0-1003" name="deleteUsersTest" fullname="ProjectManager.Test.ProjectServiceControllerTest.deleteUsersTest" methodname="deleteUsersTest" classname="ProjectManager.Test.ProjectServiceControllerTest" runstate="Runnable" seed="868334855" result="Passed" start-time="2018-10-02 16:17:18Z" end-time="2018-10-02 16:17:18Z" duration="0.002506" asserts="1" />
+          <test-case id="0-1001" name="getProjectTest" fullname="ProjectManager.Test.ProjectServiceControllerTest.getProjectTest" methodname="getProjectTest" classname="ProjectManager.Test.ProjectServiceControllerTest" runstate="Runnable" seed="739126210" result="Passed" start-time="2018-10-02 16:17:18Z" end-time="2018-10-02 16:17:18Z" duration="0.042661" asserts="2" />
+        </test-suite>
+        <test-suite type="TestSuite" id="0-1019" name="Service" fullname="ProjectManager.Test.Service" runstate="Runnable" testcasecount="6" result="Failed" site="Child" start-time="2018-10-02 16:17:18Z" end-time="2018-10-02 16:17:26Z" duration="8.170070" total="6" passed="4" failed="2" warnings="0" inconclusive="0" skipped="0" asserts="8">
+          <failure>
+            <message><![CDATA[One or more child tests had errors]]></message>
+          </failure>
+          <test-suite type="TestFixture" id="0-1008" name="ProjectBusinessTest" fullname="ProjectManager.Test.Service.ProjectBusinessTest" classname="ProjectManager.Test.Service.ProjectBusinessTest" runstate="Runnable" testcasecount="3" result="Failed" site="Child" start-time="2018-10-02 16:17:18Z" end-time="2018-10-02 16:17:22Z" duration="3.587380" total="3" passed="1" failed="2" warnings="0" inconclusive="0" skipped="0" asserts="5">
+            <failure>
+              <message><![CDATA[One or more child tests had errors]]></message>
+            </failure>
+            <test-case id="0-1010" name="AddProjectTestBL" fullname="ProjectManager.Test.Service.ProjectBusinessTest.AddProjectTestBL" methodname="AddProjectTestBL" classname="ProjectManager.Test.Service.ProjectBusinessTest" runstate="Runnable" seed="1681562944" result="Failed" start-time="2018-10-02 16:17:18Z" end-time="2018-10-02 16:17:22Z" duration="3.432252" asserts="1">
+              <failure>
+                <message><![CDATA[  Expected: True
+  But was:  False
+]]></message>
+                <stack-trace><![CDATA[   at ProjectManager.Test.Service.ProjectBusinessTest.AddProjectTestBL() in C:\Ajith\ProjectManager.Test\Project\ProjectBusinessTest.cs:line 42
+]]></stack-trace>
+              </failure>
+              <assertions>
+                <assertion result="Failed">
+                  <message><![CDATA[  Expected: True
+  But was:  False
+]]></message>
+                  <stack-trace><![CDATA[   at ProjectManager.Test.Service.ProjectBusinessTest.AddProjectTestBL() in C:\Ajith\ProjectManager.Test\Project\ProjectBusinessTest.cs:line 42
+]]></stack-trace>
+                </assertion>
+              </assertions>
+            </test-case>
+            <test-case id="0-1011" name="DeleteProjectTestBL" fullname="ProjectManager.Test.Service.ProjectBusinessTest.DeleteProjectTestBL" methodname="DeleteProjectTestBL" classname="ProjectManager.Test.Service.ProjectBusinessTest" runstate="Runnable" seed="1488424512" result="Failed" start-time="2018-10-02 16:17:22Z" end-time="2018-10-02 16:17:22Z" duration="0.013820" asserts="1">
+              <failure>
+                <message><![CDATA[  Expected: True
+  But was:  False
+]]></message>
+                <stack-trace><![CDATA[   at ProjectManager.Test.Service.ProjectBusinessTest.DeleteProjectTestBL() in C:\Ajith\ProjectManager.Test\Project\ProjectBusinessTest.cs:line 55
+]]></stack-trace>
+              </failure>
+              <assertions>
+                <assertion result="Failed">
+                  <message><![CDATA[  Expected: True
+  But was:  False
+]]></message>
+                  <stack-trace><![CDATA[   at ProjectManager.Test.Service.ProjectBusinessTest.DeleteProjectTestBL() in C:\Ajith\ProjectManager.Test\Project\ProjectBusinessTest.cs:line 55
+]]></stack-trace>
+                </assertion>
+              </assertions>
+            </test-case>
+            <test-case id="0-1009" name="GetProjectTestBL" fullname="ProjectManager.Test.Service.ProjectBusinessTest.GetProjectTestBL" methodname="GetProjectTestBL" classname="ProjectManager.Test.Service.ProjectBusinessTest" runstate="Runnable" seed="349140045" result="Passed" start-time="2018-10-02 16:17:22Z" end-time="2018-10-02 16:17:22Z" duration="0.140086" asserts="3" />
+          </test-suite>
+          <test-suite type="TestFixture" id="0-1012" name="UserBusinessTet" fullname="ProjectManager.Test.Service.UserBusinessTet" classname="ProjectManager.Test.Service.UserBusinessTet" runstate="Runnable" testcasecount="3" result="Passed" start-time="2018-10-02 16:17:22Z" end-time="2018-10-02 16:17:26Z" duration="4.399806" total="3" passed="3" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="3">
+            <test-case id="0-1014" name="AddUserTestBL" fullname="ProjectManager.Test.Service.UserBusinessTet.AddUserTestBL" methodname="AddUserTestBL" classname="ProjectManager.Test.Service.UserBusinessTet" runstate="Runnable" seed="1477191173" result="Passed" start-time="2018-10-02 16:17:22Z" end-time="2018-10-02 16:17:22Z" duration="0.013862" asserts="1" />
+            <test-case id="0-1015" name="DeleteUserTestBL" fullname="ProjectManager.Test.Service.UserBusinessTet.DeleteUserTestBL" methodname="DeleteUserTestBL" classname="ProjectManager.Test.Service.UserBusinessTet" runstate="Runnable" seed="2071534914" result="Passed" start-time="2018-10-02 16:17:22Z" end-time="2018-10-02 16:17:26Z" duration="4.371270" asserts="1" />
+            <test-case id="0-1013" name="GetUserTestBL" fullname="ProjectManager.Test.Service.UserBusinessTet.GetUserTestBL" methodname="GetUserTestBL" classname="ProjectManager.Test.Service.UserBusinessTet" runstate="Runnable" seed="78839659" result="Passed" start-time="2018-10-02 16:17:26Z" end-time="2018-10-02 16:17:26Z" duration="0.013783" asserts="1" />
+          </test-suite>
+        </test-suite>
+        <test-suite type="TestFixture" id="0-1004" name="UnitTest1" fullname="ProjectManager.Test.UnitTest1" classname="ProjectManager.Test.UnitTest1" runstate="Runnable" testcasecount="3" result="Passed" start-time="2018-10-02 16:17:26Z" end-time="2018-10-02 16:17:26Z" duration="0.007539" total="3" passed="3" failed="0" warnings="0" inconclusive="0" skipped="0" asserts="4">
+          <test-case id="0-1006" name="addUsersTest" fullname="ProjectManager.Test.UnitTest1.addUsersTest" methodname="addUsersTest" classname="ProjectManager.Test.UnitTest1" runstate="Runnable" seed="301405027" result="Passed" start-time="2018-10-02 16:17:26Z" end-time="2018-10-02 16:17:26Z" duration="0.002335" asserts="1" />
+          <test-case id="0-1007" name="deleteUsersTest" fullname="ProjectManager.Test.UnitTest1.deleteUsersTest" methodname="deleteUsersTest" classname="ProjectManager.Test.UnitTest1" runstate="Runnable" seed="852554662" result="Passed" start-time="2018-10-02 16:17:26Z" end-time="2018-10-02 16:17:26Z" duration="0.001538" asserts="1" />
+          <test-case id="0-1005" name="getUsersTest" fullname="ProjectManager.Test.UnitTest1.getUsersTest" methodname="getUsersTest" classname="ProjectManager.Test.UnitTest1" runstate="Runnable" seed="1655486086" result="Passed" start-time="2018-10-02 16:17:26Z" end-time="2018-10-02 16:17:26Z" duration="0.002265" asserts="2" />
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

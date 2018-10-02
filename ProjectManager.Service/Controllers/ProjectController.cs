@@ -1,4 +1,5 @@
 ﻿using CommonEntities;
+using CommonEntities.Interfaces;
 using ProjectManager.BusinessLayer;
 using System;
 using System.Collections.Generic;
@@ -12,11 +13,17 @@ namespace ProjectManager.Service.Controllers
     [RoutePrefix("Project")]
     public class ProjectController : ApiController
     {
-        Project p1;
+        private readonly IProjectBusiness p1;
         public ProjectController()
         {
             p1 = new Project();
         }
+
+        public ProjectController(IProjectBusiness project)
+        {
+            p1 = project;
+        }
+
         [Route("GetProjects")]
         [HttpGet]
         public List<ProjectModel> GetProject()

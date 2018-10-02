@@ -1,4 +1,5 @@
 ﻿using CommonEntities;
+using CommonEntities.Interfaces;
 using ProjectManager.BusinessLayer;
 using System;
 using System.Collections.Generic;
@@ -12,10 +13,15 @@ namespace ProjectManager.Service.Controllers
     [RoutePrefix("User")]
     public class UserController : ApiController
     {
-        User p1;
+        IUserBusiness p1;
         public UserController()
         {
             p1 = new User();
+        }
+
+        public UserController(IUserBusiness user)
+        {
+            p1 = user;
         }
         [Route("GetUsers/{soringParameter?}")]
         [HttpGet]
