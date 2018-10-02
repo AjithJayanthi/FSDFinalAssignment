@@ -105,7 +105,7 @@ export class AddTaskComponent implements OnInit {
         data: data
       });
       this.dialogRef.afterClosed().subscribe(result => {
-        debugger;
+       
         console.log(`Dialog result: ${result}`);
         this.addTaskModel.Parent_ID  = result;
       });

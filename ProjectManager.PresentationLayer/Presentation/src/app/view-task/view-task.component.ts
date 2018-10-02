@@ -21,10 +21,10 @@ export class ViewTaskComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getTasks();
+    this.getTasks("");
   }
-  public getTasks(){
-    this.apiService.getTasks().subscribe((data:AddTaskModel[])=>{
+  public getTasks(sortingParameter:string){
+    this.apiService.getTasks(sortingParameter).subscribe((data:AddTaskModel[])=>{
       this.taskModel = data;
       console.log(data);
     })
@@ -32,7 +32,7 @@ export class ViewTaskComponent implements OnInit {
 
   public endTask(task :AddTaskModel){
     this.apiService.endTask(task).subscribe((data:boolean)=>{
-      
+      this.getTasks("");
       console.log(data);
     })
   }

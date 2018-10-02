@@ -38,11 +38,11 @@ namespace ProjectManager.Service.Controllers
             return p1.AddTask(Task);
         }
 
-        [Route("GetTask")]
+        [Route("GetTasks/{sortingParameter?}")]
         [HttpGet]
-        public List<TaskModel> getTasks()
+        public List<TaskModel> getTasks(string sortingParameter)
         {
-            return p1.getTasks();
+            return p1.getTasks(sortingParameter);
         }
 
         [Route("EndTask")]

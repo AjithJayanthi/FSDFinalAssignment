@@ -67,8 +67,8 @@ getParentTasks():Observable<AddTaskModel[]>{
   return  this.httpClient.get<AddTaskModel[]>(`${this.base_url}/Task/GetParentTasks`);
 }
 
-getTasks():Observable<AddTaskModel[]>{
-  return this.httpClient.get<AddTaskModel[]>(`${this.base_url}/Task/GetTask`);
+getTasks(sortingParameter:string):Observable<AddTaskModel[]>{
+  return this.httpClient.get<AddTaskModel[]>(`${this.base_url}/Task/GetTasks?sortingParameter=`+sortingParameter);
 }
 
 endTask(task:AddTaskModel):Observable<boolean>{
