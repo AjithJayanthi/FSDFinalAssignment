@@ -28,7 +28,7 @@
     <br/>
     <div class="form_group">
       <b style="display: inline-block;width: 10%">Priority :</b>
-      <mat-slider style="width:51%" class="excludeErrorStyle" name="priority" color="primary" thumbLabel [displayWith]="formatLabel"
+      <mat-slider style="width:51%" class="excludeErrorStyle" name="priority" color="primary" thumbLabel 
         tickInterval="1000" min="0" max="30" [disabled]="addTaskModel.isParentTask" [(ngModel)]="addTaskModel.Priority" required #priority="ngModel"></mat-slider>
     </div>
     <br>
@@ -43,14 +43,14 @@
       <input matInput [matDatepicker]="picker" [max]="addTaskModel.End_Date" name="startDate" placeholder="Choose date"
         [(ngModel)]="addTaskModel.Start_Date" [disabled]="addTaskModel.isParentTask" required #startDate="ngModel">
       <mat-datepicker-toggle matSuffix [disabled]="addTaskModel.isParentTask" [for]="picker" ></mat-datepicker-toggle>
-      <mat-datepicker (selectedChanged)="validateDate($event)" [disabled]="addTaskModel.isParentTask" #picker ></mat-datepicker>
+      <mat-datepicker  [disabled]="addTaskModel.isParentTask" #picker ></mat-datepicker>
     </mat-form-field>
     <b style="display: inline-block;width: 10%">End Date:</b>
     <mat-form-field style="margin-left: 2%">
         <input matInput [matDatepicker]="picker2" [min]="addTaskModel.Start_Date" name="endDate" placeholder="Choose Date" [disabled]="addTaskModel.isParentTask" [(ngModel)]="addTaskModel.End_Date"
           required #endDate="ngModel">
         <mat-datepicker-toggle matSuffix [for]="picker2" [disabled]="addTaskModel.isParentTask"></mat-datepicker-toggle>
-        <mat-datepicker #picker2 (selectedChanged)="validateDate($event)" [disabled]="addTaskModel.isParentTask"></mat-datepicker>
+        <mat-datepicker #picker2  [disabled]="addTaskModel.isParentTask"></mat-datepicker>
       </mat-form-field>
 </div>
 

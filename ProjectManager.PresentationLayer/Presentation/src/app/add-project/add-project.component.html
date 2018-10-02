@@ -51,7 +51,7 @@
       <p>Value:
         <span>{{addProjectModel.Priority}}</span>
       </p> -->
-      <mat-slider style="margin-left: 2%;width:30%" class="excludeErrorStyle" name="priority" color="primary" thumbLabel [displayWith]="formatLabel"
+      <mat-slider style="margin-left: 2%;width:30%" class="excludeErrorStyle" name="priority" color="primary" thumbLabel 
         tickInterval="1000" min="0" max="30" [(ngModel)]="addProjectModel.Priority" required #priority="ngModel"></mat-slider>
     </div>
     <br/>
@@ -68,7 +68,7 @@
     </div>
     <br>
     <button type="submit" (click)="onSubmit();addProjectForm.reset();" [disabled]="!projectName.valid || (isSetDateEnabled && (!endDate.valid || !startDate.valid)) || !addProjectModel.User_ID"
-      class="btn btn-success" [value]="addProjectModel.Project_ID == ''?'Add':'Update'">{{!isUpdate ?'Add':'Update'}}</button>
+      class="btn btn-success" >{{!isUpdate ?'Add':'Update'}}</button>
     <button (click)="addProjectForm.reset();isUpdate=false;" style="margin-left: 2%" class="btn btn-primary">Reset</button>
 
   </form>

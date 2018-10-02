@@ -9,4 +9,5 @@ export class AddTaskModel {
     User_ID:number;
     isParentTask:boolean;
     ParentTaskTitle:string;
+    Status:boolean;
 }

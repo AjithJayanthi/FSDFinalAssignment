@@ -1,3 +1,51 @@
-<p>
-  view-task works!
-</p>
+<div class="row" style="margin-top: 3%;width: 100%;">
+  <div class="row col-md-6">
+    <b  style="margin-left: 3%;"for="projectName">Project :</b>
+    <input name="projectName" style="width: 50%;margin-left: 4%;" class="form-control" type="text" [(ngModel)]="addTaskModel.Project_ID"
+    disabled="true" required #projectName="ngModel">
+    <button class="form-control" (click)="openDialog()" style="width: 20%;margin-left: 5%">Search</button>
+    
+  </div>
+  <div class="row col-md-6">
+      <b>Sort Task By:</b>
+      <button class="form-control overFlow sort-buttons" (click)="getUsers('fName')" style="">Start Date</button>
+      <button class="form-control overFlow sort-buttons" (click)="getUsers('lName')"style="">End Date</button>
+      <button class="form-control overFlow sort-buttons" (click)="getUsers('Id')"style="">Priority</button>
+      <button class="form-control overFlow sort-buttons" (click)="getUsers('Id')"style="">Completed</button>
+  </div>
+</div>
+<hr style="border-top: dotted 1px;" />
+<div *ngFor ="let task of taskModel">
+<div *ngIf="addTaskModel.Project_ID == task.Project_ID" class="row" style="width: 100%;margin: 0;">
+  <div class="row col-md-5" style="width: 100%;margin: 0;">
+    <b class="col-md-5" style="margin-left: 5%;">Task</b>
+    <b >Parent</b>
+  </div>
+  <div class="row col-md-7" style="width: 100%;margin: 0;">
+    <b style="margin-left:2%;">Priority</b>
+    <b style="margin-left:6%;">Start</b>
+    <b style="margin-left:12%;">End</b>
+  </div>
+  <div class="row col-md-5" style="width: 100%;margin: 0;">
+    <div class="col-md-5 " style="background: #D3D3D3;">
+        {{task.Task}}
+    </div>
+    <div class="col-md-5 " style="background: #D3D3D3;margin-left:2%;">
+        {{task.ParentTaskTitle}}
+      </div>
+  </div>
+  <div class="row col-md-7" style="width: 100%;margin: 0;">
+        <div style="margin-left: 2%;">
+            {{task.Priority}}
+        </div>
+        <div style="margin-left: 12%">
+            {{task.Start_Date|date}}
+          </div>
+          <div style="margin-left: 3%">
+              {{task.End_Date|date}}
+            </div>
+            <button class="form-control overFlow sort-buttons" (click)="getUsers('fName')" style="">Edit</button>
+            <button class="form-control overFlow sort-buttons" (click)="endTask(task)" style="">End Task</button>
+    </div>
+</div>
+</div>

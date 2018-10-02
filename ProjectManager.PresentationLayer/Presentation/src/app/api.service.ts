@@ -10,7 +10,7 @@ import { AddTaskModel } from './models/add-task.model';
   providedIn: 'root'
 })
 export class ApiService {
-base_url="http://localhost:51418";
+base_url="http://localhost/ProjectManagerService";
 httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
@@ -65,6 +65,17 @@ addTask (addProjectModel:AddTaskModel): Observable<boolean> {
 
 getParentTasks():Observable<AddTaskModel[]>{
   return  this.httpClient.get<AddTaskModel[]>(`${this.base_url}/Task/GetParentTasks`);
+}
+
+getTasks():Observable<AddTaskModel[]>{
+  return this.httpClient.get<AddTaskModel[]>(`${this.base_url}/Task/GetTask`);
+}
+
+endTask(task:AddTaskModel):Observable<boolean>{
+  return this.httpClient.post<boolean>(`${this.base_url}/Task/EndTask`,JSON.stringify(task), this.httpOptions).pipe(
+    tap((isDeleted: boolean) => console.log(`deleted task : ${isDeleted}`)),
+    catchError(this.handleError<boolean>('EndTask'))
+  );
 }
 
 /**

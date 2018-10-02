@@ -13,6 +13,7 @@ export class AddUserComponent implements OnInit {
   UserModel:AddUserModel[];
   usersListCount:number;
   isUpdate:boolean;
+  searchText:any;
   constructor(private apiService:ApiService) { 
     this.addUserModel = new AddUserModel();
     this.isUpdate = false;
