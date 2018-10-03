@@ -35,8 +35,8 @@ deleteUser (addUserModel:AddUserModel): Observable<boolean> {
   );
 }
 
-getProjects():Observable<AddProjectModel[]>{
-  return  this.httpClient.get<AddProjectModel[]>(`${this.base_url}/Project/GetProjects`);
+getProjects(sortParameter?:string):Observable<AddProjectModel[]>{
+  return  this.httpClient.get<AddProjectModel[]>(`${this.base_url}/Project/GetProjects?sortParameter=`+sortParameter);
 }
 
 addProject (addProjectModel:AddProjectModel): Observable<boolean> {

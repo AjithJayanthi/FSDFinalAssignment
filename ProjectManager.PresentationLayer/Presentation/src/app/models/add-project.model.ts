@@ -5,4 +5,6 @@ export class AddProjectModel{
     End_Time?:Date;
     Priority:number;
     User_ID:number;
+    noOfTasks:number;
+    noOfCompletedTasks:number;
 }

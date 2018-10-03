@@ -17,5 +17,9 @@ namespace CommonEntities
         public System.DateTime? End_Time { get; set; }
         public int Priority { get; set; }
         public long User_ID { get; set; }
+
+        public int noOfTasks { get; set; }
+        
+        public int noOfCompletedTasks { get; set; }
     }
 }

@@ -16,7 +16,7 @@ namespace ProjectManager.Test
         {
             ProjectController project = new ProjectController(new MockProjectBusiness());
 
-            List<ProjectModel> projectData = project.GetProject();
+            List<ProjectModel> projectData = project.GetProject("");
 
             foreach (var x in projectData)
             {

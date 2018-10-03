@@ -77,14 +77,27 @@ namespace ProjectManager.BusinessLayer
 
         }
 
-        public List<ProjectModel> GetProject()
+        public List<ProjectModel> GetProject(string sortParameter)
         {
-            //using (ProjectManagerEntities dbContext = new ProjectManagerEntities())
-            //{
+           
                 List<ProjectModel> projects;
                 try
                 {
-                    projects = dbContext.Project_Table.Select(c => new ProjectModel { Project_ID = c.Project_ID, Start_Date = c.Start_Date, End_Time = c.End_Time, Priority = c.Priority, Project = c.Project,User_ID = dbContext.Users_Table.Where(s=>s.Project_ID == c.Project_ID).Select(s=>s.User_ID).FirstOrDefault() }).ToList();                    
+                    projects = dbContext.Project_Table.
+                            Select(c => new ProjectModel { Project_ID = c.Project_ID, Start_Date = c.Start_Date, End_Time = c.End_Time,Priority = c.Priority, noOfCompletedTasks= dbContext.Task_Table.Where(r => r.Project_ID == c.Project_ID && !r.Status).Count(), noOfTasks=dbContext.Task_Table.Where(r=>r.Project_ID==c.Project_ID).Count(),Project = c.Project,User_ID = dbContext.Users_Table.Where(s=>s.Project_ID == c.Project_ID).Select(s=>s.User_ID).FirstOrDefault() }).ToList();
+
+                if (string.IsNullOrEmpty(sortParameter) || sortParameter== "sDate")
+                {
+                    projects = projects.OrderBy(o=>o.Start_Date).ToList();
+                }
+                else if (sortParameter == "eDate" || sortParameter == "completed")
+                {
+                    projects = projects.OrderBy(o => o.End_Time).ToList();
+                }
+                else if (sortParameter == "priority")
+                {
+                    projects = projects.OrderBy(o => o.Priority).ToList();
+                }
 
                 }
                 catch (Exception e)
@@ -92,14 +105,13 @@ namespace ProjectManager.BusinessLayer
                     return new List<ProjectModel>();
                 }
                 return projects;
-            //}
+            
 
         }
 
         public bool DeleteProject(ProjectModel project)
         {
-            //using (ProjectManagerEntities dbContext = new ProjectManagerEntities())
-            //{
+            
                 try
                 {
                     var userData = dbContext.Users_Table.Where(c => c.User_ID == project.User_ID).First();
@@ -114,7 +126,7 @@ namespace ProjectManager.BusinessLayer
                     return false;
                 }
                 return true;
-            //}
+           
 
         }
     }

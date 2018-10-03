@@ -74,8 +74,8 @@ if(this.addProjectModel.Start_Date>this.addProjectModel.End_Time){
 }
 }
 
-  public getProjects() {
-    this.apiService.getProjects().subscribe((data: AddProjectModel[]) => {
+  public getProjects(sortParameter?:string) {
+    this.apiService.getProjects(sortParameter).subscribe((data: AddProjectModel[]) => {
       debugger;
       this.ProjectModel = data;
       console.log(data);

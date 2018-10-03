@@ -75,21 +75,23 @@
   <hr style="border-top: 1px solid #333;" />
 
   <div>
-    <input type="text" class="form-control" [(ngModel)]="searchText" placeholder="Search...">
+    <input type="text" class="form-control" [(ngModel)]="searchText" placeholder="Enter project name">
     <br/>
-    <b style="display: inline; margin-left: 2%; width: 10%">Sort:</b>
-    <button class="form-control overFlow" style="display: inline;margin-left: 2%; width: 15%">Start Date</button>
-    <button class="form-control overFlow" style="display: inline;margin-left: 2%; width: 15%">End Date</button>
-    <button class="form-control overFlow" style="display: inline;margin-left: 2%; width: 15%">Priority</button>
-    <button class="form-control overFlow" style="display: inline;margin-left: 2%; width: 15%">Completed</button>
-    <div *ngFor="let project of ProjectModel">
+    <b style="display: inline; margin-left: 2%; width:10%">Sort:</b>
+    <button class="form-control overFlow" (click)="getProjects('sDate')" style="display: inline;margin-left: 2%; width: 15%">Start Date</button>
+    <button class="form-control overFlow" (click)="getProjects('eDate')"style="display: inline;margin-left: 2%; width: 15%">End Date</button>
+    <button class="form-control overFlow" (click)="getProjects('priority')"style="display: inline;margin-left: 2%; width: 15%">Priority</button>
+    <button class="form-control overFlow" (click)="getProjects('completed')"style="display: inline;margin-left: 2%; width: 15%">Completed</button>
+    <div  *ngFor="let project of ProjectModel">
+      <div *ngIf="searchText == project.Project || searchText==null || searchText==''">
       <div style="background: #D3D3D3;margin-top: 20px;width:50%;display: inline-block">
         <b>Project:</b>
+        <b style="margin-left: 8px">{{project.Project}}</b>
         <br/>
         <b>No. of Tasks:</b>
-        <span style="margin-left: 10px">2</span>
+        <span style="margin-left: 10px">{{project.noOfTasks}}</span>
         <b style="margin-left: 10px">Completed:</b>
-        <span style="margin-left: 10px">2</span>
+        <span style="margin-left: 10px">{{project.noOfCompletedTasks}}</span>
         <br/>
         <b>Start Date</b>
         <span style="margin-left: 10px">{{project.Start_Date | date}}</span>
@@ -106,6 +108,7 @@
       <div style="margin-left: 10px; display: inline-block">
         <button class="form-control" (click)="editProject(project)">Update</button>
         <button class="form-control" (click)="deleteProject(project)" style="margin-top: 10px">Suspend</button>
+      </div>
       </div>
     </div>
   </div>

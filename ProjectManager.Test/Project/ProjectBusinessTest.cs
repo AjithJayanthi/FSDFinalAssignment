@@ -22,7 +22,7 @@ namespace ProjectManager.Test.Service
         {
             Mock<ProjectManagerEntities> mockContext = MockDataSetList();
             var projectBL = new Project(mockContext.Object);
-            List<ProjectModel> projects = projectBL.GetProject();
+            List<ProjectModel> projects = projectBL.GetProject("");
             Assert.IsNotNull(projects);
             foreach (var project in projects)
             {

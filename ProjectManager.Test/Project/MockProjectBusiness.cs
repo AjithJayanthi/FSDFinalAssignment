@@ -36,7 +36,7 @@ namespace ProjectManager.Test.Service
             return true;
         }
 
-        public List<ProjectModel> GetProject()
+        public List<ProjectModel> GetProject(string sortingParamter)
         {
             return new List<ProjectModel>() { new ProjectModel { Project_ID = 1, Project = "P1", Start_Date = DateTime.Now, End_Time = DateTime.Now }, new ProjectModel { Project_ID = 2, Project = "P2", Start_Date = DateTime.Now, End_Time = DateTime.Now } };
         }
