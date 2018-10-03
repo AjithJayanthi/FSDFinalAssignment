@@ -1,12 +1,9 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { AddProjectModel } from '../models/add-project.model';
 import { ApiService } from '../api.service';
-import {MatButtonModule, MatCheckboxModule,MatDatepicker} from '@angular/material';
-import * as moment from 'moment';
 import {MatDialog, MAT_DIALOG_DATA} from '@angular/material';
-import { MatDialogRef,MatTableDataSource } from "@angular/material";
+import { MatDialogRef,MatTableDataSource,MatDatepicker } from "@angular/material";
 import { AddUserModel } from '../models/add-user.model';
-
 
 @Component({
   selector: 'app-add-project',

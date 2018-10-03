@@ -42,6 +42,7 @@ namespace ProjectManager.Test.Service
             {
                 Assert.IsNotNull(user.User_ID);
             }
+            var UserBL1 = new User();
         }
 
         [Test]
@@ -81,6 +82,8 @@ namespace ProjectManager.Test.Service
                 User_ID = 1
             };
             Assert.IsTrue(UserBL.DeleteUser(data));
+
+            Assert.IsFalse(UserBL.DeleteUser(null));
         }
 
         private static Mock<ProjectManagerEntities> MockDataSetList()

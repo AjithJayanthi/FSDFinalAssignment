@@ -9,12 +9,15 @@ import { AddTaskModel } from './models/add-task.model';
 @Injectable({
   providedIn: 'root'
 })
-export class ApiService {
+export class ApiServiceMock {
 base_url="http://localhost/ProjectManagerService";
 httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
-  constructor(private  httpClient:  HttpClient) { }
+  mockAddProjectModel: AddProjectModel;
+  constructor(private  httpClient:  HttpClient) { 
+    
+  }
   getUsers(soringParameter :string):Observable<AddUserModel[]>{
     return  this.httpClient.get<AddUserModel[]>(`${this.base_url}/User/GetUsers?soringParameter=`+soringParameter);
 }
@@ -35,10 +38,10 @@ deleteUser (addUserModel:AddUserModel): Observable<boolean> {
   );
 }
 
-// getProjects(sortParameter?:string):Observable<AddProjectModel[]>{
-//     mockAddProjectModel:AddProjectModel;
-//   return  this.mockAddProjectModel[];
-// }
+ getProjects(sortParameter?:string){
+     this.mockAddProjectModel.noOfTasks=0;
+   return  this.mockAddProjectModel;
+ }
 
 addProject (addProjectModel:AddProjectModel): Observable<boolean> {
   

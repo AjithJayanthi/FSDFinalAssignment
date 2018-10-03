@@ -22,6 +22,7 @@ namespace ProjectManager.Test
             {
                 Assert.IsNotNull(x.Project_ID);               
             }
+            ProjectController project1 = new ProjectController();
         }
 
         [Test]

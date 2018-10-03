@@ -22,6 +22,8 @@ namespace ProjectManager.Test
             {
                 Assert.IsNotNull(x.Task_ID);               
             }
+
+            TaskController task1 = new TaskController();
         }
 
         [Test]

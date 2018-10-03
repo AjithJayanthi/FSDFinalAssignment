@@ -4,6 +4,7 @@ using ProjectManager.Service.Controllers;
 using CommonEntities;
 using System.Collections.Generic;
 using ProjectManager.Test.Service;
+using ProjectManager.Service;
 
 namespace ProjectManager.Test
 {
@@ -20,8 +21,11 @@ namespace ProjectManager.Test
 
             foreach (var x in userData)
             {
-                Assert.IsNotNull(x.User_ID);               
+                Assert.IsNotNull(x.User_ID);
             }
+
+            UserController user1 = new UserController();
+
         }
 
         [Test]
@@ -47,7 +51,7 @@ namespace ProjectManager.Test
                 First_Name = "fn",
                 Last_Name = "ls"
             };
-            
+
             Assert.IsTrue(user.DeleteUser(data));
         }
 

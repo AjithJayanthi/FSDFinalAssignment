@@ -5,6 +5,5 @@ C:\Ajith\ProjectManager.DataAccessLayer\bin\Debug\EntityFramework.dll
 C:\Ajith\ProjectManager.DataAccessLayer\bin\Debug\EntityFramework.SqlServer.dll
 C:\Ajith\ProjectManager.DataAccessLayer\bin\Debug\EntityFramework.xml
 C:\Ajith\ProjectManager.DataAccessLayer\bin\Debug\EntityFramework.SqlServer.xml
-C:\Ajith\ProjectManager.DataAccessLayer\obj\Debug\ProjectManager.DataAccessLayer.csprojResolveAssemblyReference.cache
 C:\Ajith\ProjectManager.DataAccessLayer\obj\Debug\ProjectManager.DataAccessLayer.dll
 C:\Ajith\ProjectManager.DataAccessLayer\obj\Debug\ProjectManager.DataAccessLayer.pdb

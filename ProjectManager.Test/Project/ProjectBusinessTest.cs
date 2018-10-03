@@ -28,6 +28,7 @@ namespace ProjectManager.Test.Service
             {
                 Assert.IsNotNull(project.Project_ID);
             }
+            var projectBL1 = new Project();
         }
 
         [Test]
@@ -37,9 +38,16 @@ namespace ProjectManager.Test.Service
             var projectBL = new Project(mockContext.Object);
             ProjectModel data = new ProjectModel()
             {
-              Project="P5"
+                Project = "P5"
             };
-            Assert.IsTrue(projectBL.AddProject(data));
+            Assert.IsFalse(projectBL.AddProject(data));
+
+            ProjectModel data2 = new ProjectModel()
+            {
+                Project_ID = 1,
+                Project = "P5"
+            };
+            Assert.IsFalse(projectBL.AddProject(data2));
         }
 
 
@@ -52,7 +60,7 @@ namespace ProjectManager.Test.Service
             {
                 Project = "P5"
             };
-            Assert.IsTrue(projectBL.DeleteProject(data));
+            Assert.IsFalse(projectBL.DeleteProject(data));
         }
 
         private static Mock<ProjectManagerEntities> MockDataSetList()
@@ -105,8 +113,8 @@ namespace ProjectManager.Test.Service
             var mockContext = new Mock<ProjectManagerEntities>();
             mockContext.Setup(m => m.Project_Table).Returns(mockset.Object);
 
-            
-           // var mockContext2 = new Mock<ProjectManagerEntities>();
+
+            // var mockContext2 = new Mock<ProjectManagerEntities>();
             mockContext.Setup(m => m.Users_Table).Returns(mockset2.Object);
 
 

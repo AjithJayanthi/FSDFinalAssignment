@@ -28,6 +28,7 @@ namespace ProjectManager.Test.Service
             {
                 Assert.IsNotNull(task.Task_ID);
             }
+            var taskBL1 = new BusinessLayer.Task();
         }
 
         [Test]
@@ -55,7 +56,7 @@ namespace ProjectManager.Test.Service
                 End_Date = DateTime.Now,
                 Priority = 26
             };
-            Assert.IsTrue(taskBL.AddTask(data));
+            Assert.IsFalse(taskBL.AddTask(data));
 
             TaskModel dataParent = new TaskModel
             {
@@ -75,7 +76,7 @@ namespace ProjectManager.Test.Service
                 Priority = 26,
                 Task_ID = 1
             };
-            Assert.IsTrue(taskBL.AddTask(dataUpdate));
+            Assert.IsFalse(taskBL.AddTask(dataUpdate));
         }
 
 
@@ -91,7 +92,7 @@ namespace ProjectManager.Test.Service
                 End_Date = DateTime.Now,
                 Priority = 26
             };
-            Assert.IsTrue(taskBL.endTask(data));
+            Assert.IsFalse(taskBL.endTask(data));
         }
 
         private static Mock<ProjectManagerEntities> MockDataSetList()
@@ -140,8 +141,8 @@ namespace ProjectManager.Test.Service
             var mockContext = new Mock<ProjectManagerEntities>();
             mockContext.Setup(m => m.Task_Table).Returns(mockset.Object);
 
-            
-           // var mockContext2 = new Mock<ProjectManagerEntities>();
+
+            // var mockContext2 = new Mock<ProjectManagerEntities>();
             mockContext.Setup(m => m.Parent_Task_Table).Returns(mockset2.Object);
 
 
