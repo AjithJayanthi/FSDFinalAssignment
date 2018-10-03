@@ -35,10 +35,10 @@ deleteUser (addUserModel:AddUserModel): Observable<boolean> {
   );
 }
 
-getProjects(sortParameter?:string):Observable<AddProjectModel[]>{
-    mockAddProjectModel:AddProjectModel;
-  return  mockAddProjectModel[];
-}
+// getProjects(sortParameter?:string):Observable<AddProjectModel[]>{
+//     mockAddProjectModel:AddProjectModel;
+//   return  this.mockAddProjectModel[];
+// }
 
 addProject (addProjectModel:AddProjectModel): Observable<boolean> {
   
