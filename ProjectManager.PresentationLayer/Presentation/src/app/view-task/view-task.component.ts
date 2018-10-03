@@ -4,6 +4,7 @@ import { ProjectListDialog } from '../add-task/add-task.component';
 import { AddProjectModel } from '../models/add-project.model';
 import { ApiService } from '../api.service';
 import { MatDialog } from '@angular/material';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-view-task',
@@ -15,7 +16,7 @@ export class ViewTaskComponent implements OnInit {
   taskModel:AddTaskModel[];
   dialogRef: any;
   searchText:any;
-  constructor(private apiService: ApiService, public dialog: MatDialog) { 
+  constructor(private apiService: ApiService, public dialog: MatDialog,private router: Router) { 
  this.addTaskModel=new AddTaskModel();
  
   }
@@ -36,6 +37,11 @@ export class ViewTaskComponent implements OnInit {
       console.log(data);
     })
   }
+
+editTask(task :AddTaskModel){
+  debugger;
+  this.router.navigate(['/AddTask', { task: JSON.stringify(task) }],{skipLocationChange: true});
+}
 
   openDialog() {
 

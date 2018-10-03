@@ -80,6 +80,9 @@
     <Compile Include="Project\MockProjectBusiness.cs" />
     <Compile Include="Project\ProjectBusinessTest.cs" />
     <Compile Include="Project\ProjectServiceControllerTest.cs" />
+    <Compile Include="Task\MockTaskBusiness.cs" />
+    <Compile Include="Task\TaskBusinessTest.cs" />
+    <Compile Include="Task\TaskServiceControllerTest.cs" />
     <Compile Include="User\MockUserBusiness.cs" />
     <Compile Include="User\UserBusinessTet.cs" />
     <Compile Include="User\UserServiceControllerTest.cs" />

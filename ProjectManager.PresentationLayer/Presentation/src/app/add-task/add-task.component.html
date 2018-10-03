@@ -5,7 +5,7 @@
       <b style="display: inline-block;width: 10%" for="projectName">Project :</b>
       <input name="projectName" style="display: inline-block;width:50%" class="form-control" type="text" [(ngModel)]="addTaskModel.Project_ID"
         disabled="true" required #projectName="ngModel">
-      <button class="form-control" (click)="openDialog()" style="display: inline-block;margin-left: 2%; width: 10%">Search</button>
+      <button class="form-control" (click)="openDialog()" style="display: inline-block;margin-left: 2%; width: 10%" [disabled]="isUpdate" >Search</button>
       <div [hidden]="projectName.valid || projectName.pristine" class="alert alert-danger">
         Project Name is required
       </div>
@@ -62,7 +62,7 @@
   <div style="margin-top: 3%; margin-left: 22%;">
     <button style="width: 10%;" type="submit" (click)="onSubmit();addTaskForm.reset();" [disabled]="((addTaskModel.isParentTask && !addTaskModel.ParentTaskTitle)||((!addTaskModel.isParentTask )&&(!addTaskModel.Project_ID || !addTaskModel.User_ID || !addTaskModel.Task || (!addTaskModel.isParentTask && (!endDate.valid || !startDate.valid)))))"
       class="btn btn-success" >{{!isUpdate ?'Add':'Update'}}</button>
-    <button  style="width: 10%;margin-left: 2%" (click)="addTaskForm.reset();isUpdate=false;"  class="btn btn-primary">Reset</button>
+    <button  style="width: 10%;margin-left: 2%" (click)="addTaskForm.reset();"  class="btn btn-primary">Reset</button>
   </div>
   </form>
 </div>

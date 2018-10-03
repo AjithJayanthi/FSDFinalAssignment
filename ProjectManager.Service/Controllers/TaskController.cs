@@ -1,4 +1,5 @@
 ﻿using CommonEntities;
+using CommonEntities.Interfaces;
 using ProjectManager.BusinessLayer;
 using System;
 using System.Collections.Generic;
@@ -12,17 +13,15 @@ namespace ProjectManager.Service.Controllers
     [RoutePrefix("Task")]
     public class TaskController : ApiController
     {
-        Task p1;
+        private readonly ITaskBusiness p1 = null;
         public TaskController()
         {
             p1 = new Task();
         }
-        //[Route("GetTasks")]
-        //[HttpGet]
-        //public List<UsersModel> GetTasks()
-        //{
-        //    return p1.GetUsers();
-        //}
+        public TaskController(ITaskBusiness task)
+        {
+            p1 = task;
+        }
 
         [Route("GetParentTasks")]
         [HttpGet]
@@ -50,13 +49,6 @@ namespace ProjectManager.Service.Controllers
         public Boolean endTask(TaskModel Task)
         {
             return p1.endTask(Task);
-        }
-
-        //[Route("DeleteUser")]
-        //[HttpPost]
-        //public bool DeleteUser(UsersModel user)
-        //{
-        //    return p1.DeleteUser(user);
-        //}
+        }        
     }
 }

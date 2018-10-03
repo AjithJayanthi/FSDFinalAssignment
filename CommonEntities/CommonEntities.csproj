@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="Interfaces\IProjectBusiness .cs" />
+    <Compile Include="Interfaces\ITaskBusiness.cs" />
     <Compile Include="Interfaces\IUserBusiness.cs" />
     <Compile Include="Parent_Task_Model.cs" />
     <Compile Include="ProjectModel.cs" />

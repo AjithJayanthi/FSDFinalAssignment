@@ -19,7 +19,7 @@ namespace CommonEntities
         public long User_ID { get; set; }
 
         public int noOfTasks { get; set; }
-        
+
         public int noOfCompletedTasks { get; set; }
     }
 }

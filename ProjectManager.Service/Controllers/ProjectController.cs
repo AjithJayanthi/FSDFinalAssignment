@@ -34,8 +34,8 @@ namespace ProjectManager.Service.Controllers
         [Route("AddProject")]
         [HttpPost]
         public bool AddProject(ProjectModel project)
-        {            
-            return p1.AddProject(project);            
+        {
+            return p1.AddProject(project);
         }
 
         [Route("DeleteProject")]

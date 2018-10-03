@@ -1,7 +1,7 @@
 USE [ProjectManager]
 GO
 
-/****** Object:  Table [dbo].[Task_Table]    Script Date: 30-09-2018 01:02:25 ******/
+/****** Object:  Table [dbo].[Task_Table]    Script Date: 03-10-2018 11:07:44 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -22,6 +22,13 @@ CREATE TABLE [dbo].[Task_Table](
 	[Task_ID] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[Task_Table]  WITH CHECK ADD  CONSTRAINT [FK_TaskParent] FOREIGN KEY([Parent_ID])
+REFERENCES [dbo].[Parent_Task_Table] ([Parent_ID])
+GO
+
+ALTER TABLE [dbo].[Task_Table] CHECK CONSTRAINT [FK_TaskParent]
 GO
 
 

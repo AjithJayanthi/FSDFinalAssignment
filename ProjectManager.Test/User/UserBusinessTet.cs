@@ -22,9 +22,23 @@ namespace ProjectManager.Test.Service
         {
             Mock<ProjectManagerEntities> mockContext = MockDataSetList();
             var UserBL = new User(mockContext.Object);
-            List<UsersModel> users = UserBL.GetUsers("FirstName");
+            List<UsersModel> users = UserBL.GetUsers("fName");
             Assert.IsNotNull(users);
             foreach (var user in users)
+            {
+                Assert.IsNotNull(user.User_ID);
+            }
+
+            List<UsersModel> usersFirstName = UserBL.GetUsers("Id");
+            Assert.IsNotNull(usersFirstName);
+            foreach (var user in usersFirstName)
+            {
+                Assert.IsNotNull(user.User_ID);
+            }
+
+            List<UsersModel> usersLastName = UserBL.GetUsers("lName");
+            Assert.IsNotNull(usersLastName);
+            foreach (var user in usersLastName)
             {
                 Assert.IsNotNull(user.User_ID);
             }
@@ -42,6 +56,15 @@ namespace ProjectManager.Test.Service
                 Last_Name = "lastName1"
             };
             Assert.IsTrue(UserBL.AddUser(data));
+
+            UsersModel updateData = new UsersModel()
+            {
+                User_ID = 1,
+                Employee_ID = "5",
+                First_Name = "firstName1",
+                Last_Name = "lastName1"
+            };
+            Assert.IsTrue(UserBL.AddUser(updateData));
         }
 
 
